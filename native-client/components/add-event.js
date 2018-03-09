@@ -20,10 +20,9 @@ class AddEvent extends Component {
 
   _onPressButton = () => {
     console.log(this.state.text);
-    axios.post(`${API_ROOT}/events`)
+    axios.post(`${API_ROOT}/events`, {name: this.state.text})
     .then((res) => (res.data))
     .then((data) => Alert.alert(data));
-    // Alert.alert('You tapped the button!');
   }
 
   render() {
@@ -31,13 +30,13 @@ class AddEvent extends Component {
       <View style={styles.container}>
           <Text style={styles.title}>add event:</Text>
           <TextInput
+          style={styles.textInput}
           onChangeText={(text) => this.setState({text})}
           value={this.state.text}
-          />
+          >
+          </TextInput>
           <TouchableHighlight onPress={this._onPressButton} underlayColor="white">
-            <View>
               <Text>submit</Text>
-            </View>
           </TouchableHighlight>
         </View>
     )
@@ -53,8 +52,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: 'Arial',
-    fontSize: 70,
+    fontSize: 30,
     color: '#b77575'
+  },
+  textInput: {
+    height: 40
   }
 });
 

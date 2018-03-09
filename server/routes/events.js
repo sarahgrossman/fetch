@@ -9,10 +9,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  Event.create({
-    name: 'Button got clicked'
-  })
-  .then(() => res.send('server saw you'));
+  console.log(req.body);
+  Event.create(
+    req.body
+  )
+  .then(() => res.send('Thanks!'));
 })
 
 module.exports = router;
