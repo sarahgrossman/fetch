@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Alert, TouchableHighlight, StyleSheet, Text, View } from 'react-native';
+import { Alert, TextInput, TouchableHighlight, StyleSheet, Text, View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import axios from 'axios';
 

@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Alert, TouchableHighlight, StyleSheet, Text, View, TextInput } from 'react-native';
-import {Actions} from 'react-native-router-flux';
+import { UploadImage } from './';
 import axios from 'axios';
 
 let API_ROOT
@@ -11,36 +11,23 @@ let API_ROOT
 // }
 
 
-class AddEvent extends Component {
+class AddImage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: 'default_event'
     }
-    // this.onChangeText = this.onChangeText.bind(this);
   }
 
   _onPressButton = () => {
-    console.log(this.state.text);
-    axios.post(`${API_ROOT}/events`, {name: this.state.text})
-    .then((res) => (res.data))
-    // .then((data) => Alert.alert(data))
-    .then(() => Actions.addImage());
   }
 
   render() {
     return (
       <View style={styles.container}>
-         <Text style={styles.title}>add event:</Text>
-          <TextInput
-          style={styles.textInput}
-          onChangeText={(text) => this.setState({text})}
-          // value={this.state.text}
-          placeholder='your event name here'
-          >
-          </TextInput>
+          <Text style={styles.title}>add your look:</Text>
+          <UploadImage />
           <TouchableHighlight onPress={this._onPressButton} underlayColor="white">
-               <Text>submit</Text>
+              <Text>submit</Text>
           </TouchableHighlight>
         </View>
     )
@@ -64,4 +51,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default AddEvent;
+export default AddImage;

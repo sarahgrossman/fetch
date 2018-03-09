@@ -7,9 +7,14 @@ const bodyParser = require('body-parser');
 
 const index = require('./routes/index');
 const events = require('./routes/events');
+const images = require('./routes/images');
 
 const app = express();
 const db = require('./db');
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -30,7 +35,7 @@ app.use(function(req, res, next) {
 });
 
 // sync db
-db.sync({force: true});
+db.sync();
 
 
 // error handler

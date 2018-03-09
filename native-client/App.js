@@ -1,7 +1,7 @@
 import React from 'react';
 // import { Alert, Button, TouchableHighlight, StyleSheet, Text, View } from 'react-native';
 import { Router, Scene } from 'react-native-router-flux';
-import {LandingPage, AddEvent} from './components';
+import {LandingPage, AddEvent, AddImage} from './components';
 
 export default class App extends React.Component {
   render() {
@@ -15,7 +15,11 @@ export default class App extends React.Component {
       />
       <Scene key='addEvent'
       component={AddEvent}
-      title="Add Event"
+      title="1. Add Event"
+      />
+      <Scene key='addImage'
+      component={AddImage}
+      title="2. Add Image"
       />
       </Scene>
       </Router>
