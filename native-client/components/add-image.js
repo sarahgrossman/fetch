@@ -5,9 +5,10 @@ import axios from 'axios';
 
 let API_ROOT
 // if (IS_SIM) {
-  API_ROOT = 'http://localhost:5000'
+  // API_ROOT = 'http://localhost:5000'
 // } else {
   // API_ROOT = 'http://192.168.1.190:5000'
+  API_ROOT = '172.16.22.214:5000'
 // }
 
 
@@ -25,7 +26,9 @@ class AddImage extends Component {
     return (
       <View style={styles.container}>
           <Text style={styles.title}>add your look:</Text>
+          <View style={styles.uploadContainer}>
           <UploadImage />
+          </View>
           <TouchableHighlight onPress={this._onPressButton} underlayColor="white">
               <Text>submit</Text>
           </TouchableHighlight>
@@ -48,6 +51,9 @@ const styles = StyleSheet.create({
   },
   textInput: {
     height: 40
+  },
+  uploadContainer: {
+    height: 90
   }
 });
 

@@ -8,6 +8,7 @@ let API_ROOT
   API_ROOT = 'http://localhost:5000'
 // } else {
   // API_ROOT = 'http://192.168.1.190:5000'
+  API_ROOT = '172.16.22.214:5000'
 // }
 
 
@@ -23,7 +24,7 @@ class LandingPage extends Component {
   render() {
     return (
       <View style={styles.container}>
-          <Text style={styles.title}>fetch</Text>
+          <Text style={styles.title}>    fetch   </Text>
           <TouchableHighlight onPress={() => Actions.addEvent()} underlayColor="white">
             <View>
               <Text>get started</Text>
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-    fontFamily: 'Arial',
+    fontFamily: 'Snell Roundhand',
     fontSize: 70,
     color: '#b77575'
   }

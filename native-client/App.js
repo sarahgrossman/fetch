@@ -1,7 +1,7 @@
 import React from 'react';
 // import { Alert, Button, TouchableHighlight, StyleSheet, Text, View } from 'react-native';
 import { Router, Scene } from 'react-native-router-flux';
-import {LandingPage, AddEvent, AddImage} from './components';
+import {LandingPage, AddEvent, AddImage, CameraView} from './components';
 
 export default class App extends React.Component {
   render() {
@@ -21,6 +21,11 @@ export default class App extends React.Component {
       component={AddImage}
       title="2. Add Image"
       />
+      <Scene key='useCamera'
+      component={CameraView}
+      title=""
+      />
+
       </Scene>
       </Router>
     );
