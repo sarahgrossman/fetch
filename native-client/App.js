@@ -1,17 +1,18 @@
 import React from 'react';
 import { Alert, Button, TouchableHighlight, StyleSheet, Text, View } from 'react-native';
+import axios from 'axios';
 
 let API_ROOT
 // if (IS_SIM) {
-//   API_ROOT = 'http://localhost:5000'
+  API_ROOT = 'http://localhost:5000'
 // } else {
-  API_ROOT = 'http://192.168.1.190:5000'
+  // API_ROOT = 'http://192.168.1.190:5000'
 // }
 
 export default class App extends React.Component {
   _onPressButton() {
-    fetch(`${API_ROOT}/users`)
-    .then((res) => res.text())
+    axios.post(`${API_ROOT}/events`)
+    .then((res) => (res.data))
     .then((data) => Alert.alert(data));
     // Alert.alert('You tapped the button!');
   }

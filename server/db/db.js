@@ -1,3 +1,4 @@
+// const { User, Image, Event } = require('./models');
 const Sequelize = require('sequelize')
 const pkg = require('../../package.json')
 
@@ -9,4 +10,5 @@ const db = new Sequelize(
     logging: false
   }
 )
-module.exports = db
+
+module.exports = db;
