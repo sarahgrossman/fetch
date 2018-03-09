@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import { Text, Button, Image, View, StyleSheet } from 'react-native';
 import { ImagePicker } from 'expo';
+import axios from 'axios';
+
+let API_ROOT
+// if (IS_SIM) {
+  API_ROOT = 'http://localhost:5000'
+// } else {
+  // API_ROOT = 'http://192.168.1.190:5000'
+// }
 
 class UploadImage extends Component {
   state = {
@@ -18,6 +26,13 @@ class UploadImage extends Component {
     }
   };
 
+  onPressYes() {
+    axios.post(`${API_ROOT}/images`, {image: this.state.image})
+    // .then(res => res.data)
+    // .then(data => console.log(data))
+    // .catch(err => console.log(err));
+  }
+
   render() {
     let { image } = this.state;
 
@@ -33,11 +48,11 @@ class UploadImage extends Component {
             <Text>is this the image you want?</Text>
             <Button
               title='yes'
-              // onPress={}
+              onPress={this.onPressYes}
               />
             <Button
               title='no'
-              // onPress={}
+              onPress={this.onPressYes}
               />
           </View>}
         </View>

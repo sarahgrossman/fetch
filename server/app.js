@@ -26,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/events', events);
+app.use('/images', images);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -35,7 +36,7 @@ app.use(function(req, res, next) {
 });
 
 // sync db
-db.sync();
+db.sync({});
 
 
 // error handler

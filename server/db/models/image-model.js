@@ -2,7 +2,7 @@ const Sequelize = require('Sequelize');
 const db = require('../db');
 
 const Image = db.define('images', {
-  name: {
+  image: {
     type: Sequelize.BLOB
   }
 });
