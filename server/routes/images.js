@@ -9,12 +9,11 @@ var storage = multer.diskStorage({
     cb(null, '/Users/sarahgrossman/fullstack-senior-phase/fetch/server/public/images')
   },
   filename: function (req, file, cb) {
-    cb(null, req.body.eventId + '-' + file.fieldname);
+    cb(null, `${req.body.eventId}-${req.body.userId}-${file.fieldname}`);
   }
 })
 
 var upload = multer({ storage: storage })
-
 
 
 /* GET users listing. */
@@ -23,9 +22,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', upload.single('photo'), (req, res, next) => {
-  console.log('form fields are ', req.body);
-  console.log('form files are', req.file);
-  res.status(204).end();
+  // res.status(204).end();
+  Image.create({
+    uri: `${req.body.eventId}-${req.body.userId}-photo`,
+    eventId: req.body.eventId,
+    userId: req.body.userId
+  })
+  .then((createdImage) => res.status(204).json(createdImage))
 })
 
 module.exports = router;

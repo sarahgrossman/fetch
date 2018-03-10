@@ -7,7 +7,7 @@ import API_ROOT from '../ip-addresses';
 class UploadImage extends Component {
   state = {
     image: null,
-    eventId: 2,
+    eventId: 1,
     userId: 1
   }
 
@@ -25,6 +25,7 @@ class UploadImage extends Component {
   onPressYes() {
     const data = new FormData();
     data.append('eventId', this.state.eventId);
+    data.append('userId', this.state.userId)
     data.append('photo', {
       uri: this.state.image,
       type: 'image/jpeg',

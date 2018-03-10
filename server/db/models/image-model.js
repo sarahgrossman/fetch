@@ -2,9 +2,9 @@ const Sequelize = require('Sequelize');
 const db = require('../db');
 
 const Image = db.define('images', {
-  image: {
-    type: Sequelize.BLOB
-  }
+    uri: {
+      type: Sequelize.TEXT
+    }
 });
 
 module.exports = Image;
