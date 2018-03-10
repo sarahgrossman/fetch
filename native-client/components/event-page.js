@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Alert, Image, TouchableHighlight, StyleSheet, Text, View } from 'react-native';
+import { Alert, Image, TouchableHighlight, StyleSheet, Text, View, Button } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import axios from 'axios';
 import API_ROOT from '../ip-addresses';
@@ -18,17 +18,14 @@ class EventPage extends Component {
   .then(res => res.data)
   .then(images => {
     const imageUris = images.map(image => image.uri);
-    console.log('###URIS ARE ', imageUris);
     this.setState({
       imageUris
     })
   })
-  .then(() => console.log('state is ', this.state))
   .catch(err => console.log(err));
   }
 
   render() {
-    console.log('props are', this.props)
     const { imageUris } = this.state;
       return (
         <View>
@@ -43,6 +40,10 @@ class EventPage extends Component {
                   )
                 }
               )}
+          <Button
+            title='add photo'
+            onPress={() => Actions.addImage({eventId: this.props.eventId})}
+            />
           </View>
       )
   }
