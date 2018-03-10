@@ -21,5 +21,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # ip addresses
-
 /native-client/ip-addresses.js
+
+# photos
+/server/public/images

@@ -2,18 +2,32 @@ import React, {Component} from 'react';
 import { Alert, Image, TouchableHighlight, StyleSheet, Text, View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import axios from 'axios';
+import API_ROOT from '../ip-addresses';
 
 
-class LandingPage extends Component {
+class EventPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      images: false
+    }
+  }
+
+  // getImages = () => fetch(`${API_ROOT}/images/`)
+  // .then((images) => {
+  //   <Image source={'localhost:5000/public/images/9ec911c2a5e5ece209cd5940779f67fb} />
+  // })
 
   render() {
+    // this.getImages();
+    const { images } = this.state;
     return (
-      <View style={styles.container}>
-      {/* <Image source={require('../public/background.jpeg')} style={styles.backgroundImage} /> */}
-          <Text style={styles.title}>    fetch   </Text>
+      <View>
+        {}
           <TouchableHighlight onPress={() => Actions.addEvent()} underlayColor="white">
             <View>
-              <Text>get started</Text>
+              <Text>Images will go here</Text>
+              <Image source={'localhost:5000/public/images/9ec911c2a5e5ece209cd5940779f67fb'} />
             </View>
           </TouchableHighlight>
         </View>
@@ -26,8 +40,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#e0ecef',
     alignItems: 'center',
-    // justifyContent: 'center',
-    paddingTop: 200
+    justifyContent: 'center',
   },
   title: {
     fontFamily: 'Snell Roundhand',
@@ -43,4 +56,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default LandingPage;
+export default EventPage;

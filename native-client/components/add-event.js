@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { TouchableHighlight, StyleSheet, Text, View, TextInput } from 'react-native';
+import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import axios from 'axios';
 // import API_ROOT from '../ip-addresses';
@@ -38,12 +38,27 @@ class AddEvent extends Component {
           style={styles.textInput}
           onChangeText={(text) => this.setState({text})}
           // value={this.state.text}
-          placeholder='your event name here'
+          placeholder='new event'
           >
           </TextInput>
-          <TouchableHighlight onPress={this._onPressButton} underlayColor="white">
-               <Text>submit</Text>
-          </TouchableHighlight>
+          <Button
+            title="submit"
+            onPress={this._onPressButton}>
+          </Button>
+          <Text style={styles.or}>OR</Text>
+          <Text style={styles.title}>search by name:</Text>
+          <TextInput
+          style={styles.textInput}
+          onChangeText={(text) => this.setState({text})}
+          // value={this.state.text}
+          placeholder='event name'
+          >
+          </TextInput>
+          <Button
+            title="submit"
+            onPress={() => Actions.eventPage()}
+            >
+            </Button>
         </View>
     )
   }
@@ -54,15 +69,24 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#e0ecef',
     alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: 50
   },
   title: {
     fontFamily: 'Arial',
     fontSize: 30,
-    color: '#b77575'
+    color: '#b77575',
+    paddingTop: 50
   },
   textInput: {
-    height: 40
+    height: 40,
+    width: 200,
+    textAlign: 'center'
+  },
+  or: {
+    paddingTop: 50,
+    fontSize: 15,
+    fontFamily: 'Arial',
+    color: '#b77575',
   }
 });
 

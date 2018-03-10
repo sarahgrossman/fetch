@@ -6,9 +6,9 @@ const upload = multer({ dest: './public/images'})
 
 
 /* GET users listing. */
-// router.get('/', function(req, res, next) {
-//   res.send('respond with a resource');
-// });
+router.get('/', function(req, res, next) {
+  res.sendFile(path.join(__dirname, '..', 'public/images/50b873ad0c26bd37c038035ea4c3e1d6'))
+});
 
 router.post('/', upload.single('photo'), (req, res, next) => {
   console.log('form fields are ', req.body);

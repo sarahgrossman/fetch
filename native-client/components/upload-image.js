@@ -42,6 +42,7 @@ class UploadImage extends Component {
     .then(res => {
       console.log(res)
     });
+    Actions.eventPage();
   }
 
   render() {
@@ -68,7 +69,7 @@ class UploadImage extends Component {
               />
             <Button
               title='no'
-              onPress={this.onPressYes}
+              onPress={() => this.setState({image: null})}
               />
           </View>}
         </View>

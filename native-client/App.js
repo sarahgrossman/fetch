@@ -1,7 +1,7 @@
 import React from 'react';
 // import { Alert, Button, TouchableHighlight, StyleSheet, Text, View } from 'react-native';
 import { Router, Scene } from 'react-native-router-flux';
-import {LandingPage, AddEvent, AddImage, CameraView} from './components';
+import {LandingPage, AddEvent, AddImage, CameraView, EventPage} from './components';
 
 export default class App extends React.Component {
   render() {
@@ -24,6 +24,10 @@ export default class App extends React.Component {
       <Scene key='useCamera'
       component={CameraView}
       title=""
+      />
+      <Scene key='eventPage'
+      component={EventPage}
+      title="Your Event"
       />
 
       </Scene>
