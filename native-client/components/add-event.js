@@ -2,32 +2,27 @@ import React, {Component} from 'react';
 import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import axios from 'axios';
-// import API_ROOT from '../ip-addresses';
-
-let API_ROOT
-// if (IS_SIM) {
-  API_ROOT = 'http://localhost:5000'
-// } else {
-  // API_ROOT = 'http://192.168.1.190:5000',
-  // API_ROOT = 'http://172.16.22.214:5000'
-// }
+import API_ROOT from '../ip-addresses';
 
 
 class AddEvent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: 'default_event'
+      newEvent: 'default_event'
     }
     // this.onChangeText = this.onChangeText.bind(this);
   }
 
-  _onPressButton = () => {
-    console.log(this.state.text);
+  addEventButton = () => {
     axios.post(`${API_ROOT}/events`, {name: this.state.text})
     .then((res) => (res.data))
-    // .then((data) => Alert.alert(data))
-    .then(() => Actions.addImage());
+    .then(() => Actions.addImage())
+    .catch(error => console.log(error));
+  }
+
+  createEventButton = () => {
+    axios.get(`${API_ROOT}/events`)
   }
 
   render() {
@@ -36,14 +31,14 @@ class AddEvent extends Component {
          <Text style={styles.title}>add event:</Text>
           <TextInput
           style={styles.textInput}
-          onChangeText={(text) => this.setState({text})}
+          onChangeText={(newEvent) => this.setState({newEvent})}
           // value={this.state.text}
           placeholder='new event'
           >
           </TextInput>
           <Button
             title="submit"
-            onPress={this._onPressButton}>
+            onPress={this.addEventButton}>
           </Button>
           <Text style={styles.or}>OR</Text>
           <Text style={styles.title}>search by name:</Text>
@@ -51,11 +46,11 @@ class AddEvent extends Component {
           style={styles.textInput}
           onChangeText={(text) => this.setState({text})}
           // value={this.state.text}
-          placeholder='event name'
+          placeholder='submit'
           >
           </TextInput>
           <Button
-            title="submit"
+            title="find event"
             onPress={() => Actions.eventPage()}
             >
             </Button>

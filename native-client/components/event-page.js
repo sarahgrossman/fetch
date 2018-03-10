@@ -10,11 +10,11 @@ class EventPage extends Component {
     super(props);
     this.state = {
       images: false,
-      // imageUri: ''
+      imageUri: ''
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     axios.get(`${API_ROOT}/images`)
   .then(res => res.data)
   .then(data => {
@@ -33,7 +33,9 @@ class EventPage extends Component {
         {}
           <TouchableHighlight onPress={() => Actions.addEvent()} underlayColor="white">
             <View>
-            <Image source={{uri: imageUri}} />
+            <Image
+              style={styles.image}
+              source={{uri: imageUri}} />
             </View>
           </TouchableHighlight>
         </View>
@@ -59,6 +61,11 @@ const styles = StyleSheet.create({
   //   width: null,
   //   height: null
   // }
+  image: {
+    width: 100,
+    height: 100
+  }
+
 });
 
 
