@@ -17,10 +17,10 @@ var upload = multer({ storage: storage })
 
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/:id', function(req, res, next) {
   Image.findAll({
     where: {
-      eventId: 2
+      eventId: req.params.id
     }
   })
   .then((foundImages) => res.json(foundImages));

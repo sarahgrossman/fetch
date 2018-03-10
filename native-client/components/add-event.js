@@ -25,7 +25,7 @@ class AddEvent extends Component {
     console.log(this.state.eventName, 'is the event name')
     axios.get(`${API_ROOT}/events/${this.state.eventName}`)
     .then(res => res.data)
-    .then(data => Actions.eventPage({eventId: data.id}))
+    .then(data => Actions.eventPage({eventId: data.id, eventName: data.name}))
   }
 
   render() {

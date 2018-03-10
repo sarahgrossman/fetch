@@ -14,7 +14,7 @@ class EventPage extends Component {
   }
 
   componentDidMount() {
-  axios.get(`${API_ROOT}/images`)
+  axios.get(`${API_ROOT}/images/${this.props.eventId}`)
   .then(res => res.data)
   .then(images => {
     const imageUris = images.map(image => image.uri);
@@ -28,9 +28,11 @@ class EventPage extends Component {
   }
 
   render() {
+    console.log('props are', this.props)
     const { imageUris } = this.state;
       return (
         <View>
+          <Text>{this.props.eventName}</Text>
               {imageUris.length > 0 && imageUris.map(
                 uri => {
                   return (
