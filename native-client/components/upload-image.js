@@ -37,8 +37,8 @@ class UploadImage extends Component {
     })
     .then(res => {
       console.log(res)
-    });
-    Actions.eventPage();
+    })
+    .then(() => Actions.eventPage());
   }
 
   render() {

@@ -18,13 +18,18 @@ var upload = multer({ storage: storage })
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('http://localhost:5000/images/d9b0c0018e62a4e326ff541ff2b0a55b');
+  Image.findAll({
+    where: {
+      eventId: 2
+    }
+  })
+  .then((foundImages) => res.json(foundImages));
 });
 
 router.post('/', upload.single('photo'), (req, res, next) => {
   console.log('req.file is', req.file.filename);
   Image.create({
-    uri: req.file.filename,
+    uri: `http://localhost:5000/images/${req.file.filename}`,
     eventId: req.body.eventId,
     // userId: req.body.user
   })

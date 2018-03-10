@@ -9,18 +9,18 @@ class EventPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      images: false,
-      imageUri: ''
+      imageUris: []
     }
   }
 
   componentDidMount() {
   axios.get(`${API_ROOT}/images`)
   .then(res => res.data)
-  .then(data => {
-    console.log('###DATA IS ', data);
+  .then(images => {
+    const imageUris = images.map(image => image.uri);
+    console.log('###URIS ARE ', imageUris);
     this.setState({
-      imageUri: data
+      imageUris
     })
   })
   .then(() => console.log('state is ', this.state))
@@ -28,17 +28,19 @@ class EventPage extends Component {
   }
 
   render() {
-    const { images, imageUri } = this.state;
+    const { imageUris } = this.state;
       return (
         <View>
-          {}
-            <TouchableHighlight onPress={() => Actions.addEvent()} underlayColor="white">
-              <View>
-              <Image
+              {imageUris.length > 0 && imageUris.map(
+                uri => {
+                  return (
+                    <Image
+                key={uri}
                 style={styles.image}
-                source={{uri: imageUri}} />
-              </View>
-            </TouchableHighlight>
+                source={{uri}} />
+                  )
+                }
+              )}
           </View>
       )
   }
