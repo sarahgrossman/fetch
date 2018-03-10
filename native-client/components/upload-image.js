@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import { Text, Button, Image, View, StyleSheet } from 'react-native';
 import { ImagePicker } from 'expo';
 import { Actions } from 'react-native-router-flux';
-import axios from 'axios';
-// import API_ROOT from '../ip-addresses';
-
-let API_ROOT = 'http://localhost:5000';
+import API_ROOT from '../ip-addresses';
 
 class UploadImage extends Component {
   state = {

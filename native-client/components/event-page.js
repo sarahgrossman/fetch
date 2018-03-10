@@ -9,25 +9,31 @@ class EventPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      images: false
+      images: false,
+      // imageUri: ''
     }
   }
 
-  // getImages = () => fetch(`${API_ROOT}/images/`)
-  // .then((images) => {
-  //   <Image source={'localhost:5000/public/images/9ec911c2a5e5ece209cd5940779f67fb} />
-  // })
+  componentDidMount() {
+    axios.get(`${API_ROOT}/images`)
+  .then(res => res.data)
+  .then(data => {
+    console.log('###DATA IS ', data);
+    this.setState({
+      imageUri: data
+    })
+  })
+  .then(() => console.log('state is ', this.state))
+  }
 
   render() {
-    // this.getImages();
-    const { images } = this.state;
+    const { images, imageUri } = this.state;
     return (
       <View>
         {}
           <TouchableHighlight onPress={() => Actions.addEvent()} underlayColor="white">
             <View>
-              <Text>Images will go here</Text>
-              <Image source={'localhost:5000/public/images/9ec911c2a5e5ece209cd5940779f67fb'} />
+            <Image source={{uri: imageUri}} />
             </View>
           </TouchableHighlight>
         </View>
