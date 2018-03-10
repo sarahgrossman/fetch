@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
+import { connect } from 'react-redux';
 import {Actions} from 'react-native-router-flux';
+import {addEvent} from '../store';
 import axios from 'axios';
 import API_ROOT from '../ip-addresses';
 
@@ -15,9 +17,8 @@ class AddEvent extends Component {
   }
 
   addEventButton = () => {
-    axios.post(`${API_ROOT}/events`, {name: this.state.text})
-    .then(res => res.data)
-    .then(data => Actions.addImage({eventId: data.id}))
+    this.props.addEvent(this.state.text)
+    .then(() => Actions.addImage())
     .catch(error => console.log(error));
   }
 
@@ -39,7 +40,7 @@ class AddEvent extends Component {
            />
           <Button
             title="submit"
-            onPress={this.addEventButton} />
+            onPress={this.addEventButton.bind(this)} />
           <Text style={styles.or}>OR</Text>
           <Text style={styles.title}>search by name:</Text>
           <TextInput
@@ -82,4 +83,16 @@ const styles = StyleSheet.create({
   }
 });
 
-export default AddEvent;
+const mapState = (state) => {
+  return {
+    event: state.event
+  }
+}
+
+const mapDispatch = (dispatch) => {
+  return {
+    addEvent: (event) => dispatch(addEvent(event))
+  }
+}
+
+export default connect(mapState, mapDispatch)(AddEvent);

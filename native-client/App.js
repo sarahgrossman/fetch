@@ -1,11 +1,13 @@
 import React from 'react';
-// import { Alert, Button, TouchableHighlight, StyleSheet, Text, View } from 'react-native';
+import {Provider} from 'react-redux';
+import store from './store'
 import { Router, Scene } from 'react-native-router-flux';
 import {LandingPage, AddEvent, AddImage, CameraView, EventPage} from './components';
 
 export default class App extends React.Component {
   render() {
     return (
+      <Provider store={store}>
       <Router>
       <Scene key='root'>
       <Scene key='landingPage'
@@ -29,9 +31,9 @@ export default class App extends React.Component {
       component={EventPage}
       title="Your Event"
       />
-
       </Scene>
       </Router>
+      </Provider>
     );
   }
 }
