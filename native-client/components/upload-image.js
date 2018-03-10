@@ -6,7 +6,9 @@ import API_ROOT from '../ip-addresses';
 
 class UploadImage extends Component {
   state = {
-    image: null
+    image: null,
+    eventId: 2,
+    userId: 1
   }
 
   _pickImage = async () => {
@@ -21,12 +23,8 @@ class UploadImage extends Component {
   };
 
   onPressYes() {
-    // axios.post(`${API_ROOT}/images`, {image: this.state.image)})
-    // .then(res => res.data)
-    // .then(data => console.log(data))
-    // .catch(err => console.log(err));
     const data = new FormData();
-    data.append('name', 'Sarah');
+    data.append('eventId', this.state.eventId);
     data.append('photo', {
       uri: this.state.image,
       type: 'image/jpeg',
