@@ -3,14 +3,9 @@ import { Text, Button, Image, View, StyleSheet } from 'react-native';
 import { ImagePicker } from 'expo';
 import { Actions } from 'react-native-router-flux';
 import axios from 'axios';
+// import API_ROOT from '../ip-addresses';
 
-let API_ROOT
-// if (IS_SIM) {
-  // API_ROOT = 'http://localhost:5000'
-// } else {
-  // API_ROOT = 'http://192.168.1.190:5000'
-  API_ROOT = '172.16.22.214:5000'
-// }
+let API_ROOT = 'http://localhost:5000';
 
 class UploadImage extends Component {
   state = {
@@ -33,6 +28,20 @@ class UploadImage extends Component {
     // .then(res => res.data)
     // .then(data => console.log(data))
     // .catch(err => console.log(err));
+    const data = new FormData();
+    data.append('name', 'Sarah');
+    data.append('photo', {
+      uri: this.state.image,
+      type: 'image/jpeg',
+      name: 'testPhoto'
+    });
+    fetch(`${API_ROOT}/images/`, {
+      method: 'post',
+      body: data
+    })
+    .then(res => {
+      console.log(res)
+    });
   }
 
   render() {
@@ -55,7 +64,7 @@ class UploadImage extends Component {
             <Text>is this the image you want?</Text>
             <Button
               title='yes'
-              onPress={this.onPressYes}
+              onPress={this.onPressYes.bind(this)}
               />
             <Button
               title='no'

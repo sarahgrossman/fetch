@@ -2,14 +2,7 @@ import React, { Component } from 'react';
 import { Alert, TouchableHighlight, StyleSheet, Text, View, TextInput } from 'react-native';
 import { UploadImage } from './';
 import axios from 'axios';
-
-let API_ROOT
-// if (IS_SIM) {
-  // API_ROOT = 'http://localhost:5000'
-// } else {
-  // API_ROOT = 'http://192.168.1.190:5000'
-  API_ROOT = '172.16.22.214:5000'
-// }
+import API_ROOT from '../ip-addresses';
 
 
 class AddImage extends Component {

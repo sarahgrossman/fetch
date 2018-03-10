@@ -2,13 +2,14 @@ import React, {Component} from 'react';
 import { TouchableHighlight, StyleSheet, Text, View, TextInput } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import axios from 'axios';
+// import API_ROOT from '../ip-addresses';
 
 let API_ROOT
 // if (IS_SIM) {
-  // API_ROOT = 'http://localhost:5000'
+  API_ROOT = 'http://localhost:5000'
 // } else {
   // API_ROOT = 'http://192.168.1.190:5000',
-  API_ROOT = 'http://172.16.22.214:5000'
+  // API_ROOT = 'http://172.16.22.214:5000'
 // }
 
 
