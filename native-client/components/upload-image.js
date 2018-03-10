@@ -5,10 +5,12 @@ import { Actions } from 'react-native-router-flux';
 import API_ROOT from '../ip-addresses';
 
 class UploadImage extends Component {
-  state = {
-    image: null,
-    eventId: 2,
-    // userId: 1
+  constructor(props) {
+    super(props);
+    this.state = {
+      image: null,
+      eventId: this.props.eventId
+    }
   }
 
   _pickImage = async () => {
@@ -24,7 +26,8 @@ class UploadImage extends Component {
 
   onPressYes() {
     const data = new FormData();
-    data.append('eventId', this.state.eventId);
+    const { eventId } = this.state;
+    data.append('eventId', eventId);
     // data.append('userId', this.state.userId)
     data.append('photo', {
       uri: this.state.image,
@@ -38,7 +41,7 @@ class UploadImage extends Component {
     .then(res => {
       console.log(res)
     })
-    .then(() => Actions.eventPage());
+    .then(() => Actions.eventPage({eventId}));
   }
 
   render() {

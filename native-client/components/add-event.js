@@ -9,15 +9,14 @@ class AddEvent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      newEvent: 'default_event'
+      text: 'default_event'
     }
-    // this.onChangeText = this.onChangeText.bind(this);
   }
 
   addEventButton = () => {
     axios.post(`${API_ROOT}/events`, {name: this.state.text})
     .then((res) => (res.data))
-    .then(() => Actions.addImage())
+    .then((data) => Actions.addImage({eventId: data.id}))
     .catch(error => console.log(error));
   }
 
@@ -31,8 +30,7 @@ class AddEvent extends Component {
          <Text style={styles.title}>add event:</Text>
           <TextInput
           style={styles.textInput}
-          onChangeText={(newEvent) => this.setState({newEvent})}
-          // value={this.state.text}
+          onChangeText={(text) => this.setState({text})}
           placeholder='new event'
           >
           </TextInput>
@@ -45,7 +43,6 @@ class AddEvent extends Component {
           <TextInput
           style={styles.textInput}
           onChangeText={(text) => this.setState({text})}
-          // value={this.state.text}
           placeholder='submit'
           >
           </TextInput>
