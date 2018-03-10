@@ -7,8 +7,8 @@ import API_ROOT from '../ip-addresses';
 class UploadImage extends Component {
   state = {
     image: null,
-    eventId: 1,
-    userId: 1
+    eventId: 2,
+    // userId: 1
   }
 
   _pickImage = async () => {
@@ -25,7 +25,7 @@ class UploadImage extends Component {
   onPressYes() {
     const data = new FormData();
     data.append('eventId', this.state.eventId);
-    data.append('userId', this.state.userId)
+    // data.append('userId', this.state.userId)
     data.append('photo', {
       uri: this.state.image,
       type: 'image/jpeg',
@@ -47,12 +47,14 @@ class UploadImage extends Component {
 
     return (
       <View style={styles.button}>
-      {!image && <View><Button
+      {!image && <View>
+      <Button
         title="Choose image from library"
         onPress={this._pickImage}
       />
-      <Button title="OR take with camera"
-      onPress={() => Actions.useCamera()}
+      <Button
+        title="OR take with camera"
+        onPress={() => Actions.useCamera()}
       /></View>
       }
         {image &&
