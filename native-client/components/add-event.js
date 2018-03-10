@@ -9,19 +9,23 @@ class AddEvent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: 'default_event'
+      text: 'default_event',
+      eventName: 'default_name'
     }
   }
 
   addEventButton = () => {
     axios.post(`${API_ROOT}/events`, {name: this.state.text})
-    .then((res) => (res.data))
-    .then((data) => Actions.addImage({eventId: data.id}))
+    .then(res => res.data)
+    .then(data => Actions.addImage({eventId: data.id}))
     .catch(error => console.log(error));
   }
 
-  createEventButton = () => {
-    axios.get(`${API_ROOT}/events`)
+  findEventButton = () => {
+    console.log(this.state.eventName, 'is the event name')
+    axios.get(`${API_ROOT}/events/${this.state.eventName}`)
+    .then(res => res.data)
+    .then(data => Actions.eventPage({eventId: data.id}))
   }
 
   render() {
@@ -31,26 +35,22 @@ class AddEvent extends Component {
           <TextInput
           style={styles.textInput}
           onChangeText={(text) => this.setState({text})}
-          placeholder='new event'
-          >
-          </TextInput>
+          placeholder="new event"
+           />
           <Button
             title="submit"
-            onPress={this.addEventButton}>
-          </Button>
+            onPress={this.addEventButton} />
           <Text style={styles.or}>OR</Text>
           <Text style={styles.title}>search by name:</Text>
           <TextInput
           style={styles.textInput}
-          onChangeText={(text) => this.setState({text})}
-          placeholder='submit'
-          >
-          </TextInput>
+          onChangeText={(text) => this.setState({eventName: text})}
+          placeholder="event name here"
+           />
           <Button
-            title="find event"
-            onPress={() => Actions.eventPage()}
-            >
-            </Button>
+            title="submit"
+            onPress={this.findEventButton.bind(this)}
+             />
         </View>
     )
   }
