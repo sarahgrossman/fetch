@@ -14,8 +14,8 @@ class EventPage extends Component {
     }
   }
 
-  componentWillMount() {
-    axios.get(`${API_ROOT}/images`)
+  componentDidMount() {
+  axios.get(`${API_ROOT}/images`)
   .then(res => res.data)
   .then(data => {
     console.log('###DATA IS ', data);
@@ -24,22 +24,23 @@ class EventPage extends Component {
     })
   })
   .then(() => console.log('state is ', this.state))
+  .catch(err => console.log(err));
   }
 
   render() {
     const { images, imageUri } = this.state;
-    return (
-      <View>
-        {}
-          <TouchableHighlight onPress={() => Actions.addEvent()} underlayColor="white">
-            <View>
-            <Image
-              style={styles.image}
-              source={{uri: imageUri}} />
-            </View>
-          </TouchableHighlight>
-        </View>
-    )
+      return (
+        <View>
+          {}
+            <TouchableHighlight onPress={() => Actions.addEvent()} underlayColor="white">
+              <View>
+              <Image
+                style={styles.image}
+                source={{uri: imageUri}} />
+              </View>
+            </TouchableHighlight>
+          </View>
+      )
   }
 }
 
