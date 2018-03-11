@@ -52,7 +52,7 @@ class EventPage extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#e0ecef',
+    // backgroundColor: '#e0ecef',
     alignItems: 'center',
     justifyContent: 'center',
   },

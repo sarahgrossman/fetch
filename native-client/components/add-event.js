@@ -59,7 +59,6 @@ class AddEvent extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#e0ecef',
     alignItems: 'center',
     paddingTop: 50
   },

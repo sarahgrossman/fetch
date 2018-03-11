@@ -1,5 +1,13 @@
 {
   "expo": {
-    "sdkVersion": "25.0.0"
+    "name": "fetch",
+    "platforms:": ["ios"],
+    "sdkVersion": "25.0.0",
+    "slug": "fetch",
+    "orientation": "portrait",
+    "icon": "./public/icon.png",
+    "ios": {
+      "bundleIdentifier": "com.yourcompany.yourappname"
+    }
   }
 }
