@@ -42,7 +42,7 @@ class EventPage extends Component {
               )}
           <Button
             title='add photo'
-            onPress={() => Actions.addImage({eventId: this.props.eventId})}
+            onPress={() => Actions.addImage({eventId: this.props.eventId, eventName: this.props.eventName})}
             />
           </View>
       )

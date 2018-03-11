@@ -17,12 +17,12 @@ class AddImage extends Component {
 
   render() {
     console.log('the event in add image is ', this.props.eventId)
-    const { eventId } = this.props;
+    const { eventId, eventName } = this.props;
     return (
       <View style={styles.container}>
           <Text style={styles.title}>add your look:</Text>
           <View style={styles.uploadContainer}>
-          <UploadImage eventId={eventId} />
+          <UploadImage eventId={eventId} eventName={eventName} />
           </View>
           <TouchableHighlight onPress={this._onPressButton} underlayColor="white">
               <Text>submit</Text>

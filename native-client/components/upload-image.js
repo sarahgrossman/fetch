@@ -41,7 +41,7 @@ class UploadImage extends Component {
     .then(res => {
       console.log(res)
     })
-    .then(() => Actions.eventPage({eventId}));
+    .then(() => Actions.eventPage({eventId, eventName: this.props.eventName }));
   }
 
   render() {
