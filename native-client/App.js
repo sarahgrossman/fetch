@@ -15,7 +15,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View>
-      <ImageBackground source={require('./public/girl.jpg')} style={{width: '100%', height: '100%', opacity: 0.5}}>
+      <ImageBackground source={require('./public/lace-zoom.jpg')} style={{width: '100%', height: '100%', opacity: 0.5}}>
       <View style={{
         position: 'absolute',
         width: '100%',
