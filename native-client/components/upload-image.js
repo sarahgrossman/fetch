@@ -28,7 +28,6 @@ class UploadImage extends Component {
     const data = new FormData();
     const { eventId } = this.state;
     data.append('eventId', eventId);
-    // data.append('userId', this.state.userId)
     data.append('photo', {
       uri: this.state.image,
       type: 'image/jpeg',
@@ -55,11 +54,7 @@ class UploadImage extends Component {
         title="Choose image from library"
         onPress={this._pickImage}
       />
-      <Button
-        title="OR take with camera"
-        onPress={() => Actions.useCamera()}
-      /></View>
-      }
+      </View>}
         {image &&
         <View>
           <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
@@ -85,8 +80,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     position: 'relative',
     width: '100%',
-    height: null,
-    // top: 300
+    height: null
   }
 })
 

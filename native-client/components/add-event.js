@@ -31,7 +31,7 @@ class AddEvent extends Component {
   render() {
     return (
       <View style={styles.container}>
-         <Text style={styles.title}>add event:</Text>
+         <Text style={styles.text}>add event:</Text>
           <TextInput
           style={styles.textInput}
           onChangeText={(text) => this.setState({text})}
@@ -41,7 +41,7 @@ class AddEvent extends Component {
             title="submit"
             onPress={this.addEventButton} />
           <Text style={styles.or}>OR</Text>
-          <Text style={styles.title}>search by name:</Text>
+          <Text style={styles.text}>search by name:</Text>
           <TextInput
           style={styles.textInput}
           onChangeText={(text) => this.setState({eventName: text})}
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     width: '100%',
     opacity: 1
   },
-  title: {
+  text: {
     fontFamily: 'alegreya-sans',
     fontSize: 30,
     color: '#b77575',

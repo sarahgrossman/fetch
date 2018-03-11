@@ -2,7 +2,7 @@ import React from 'react';
 import { ImageBackground, View, StyleSheet } from 'react-native';
 import { Font } from 'expo';
 import { Router, Scene } from 'react-native-router-flux';
-import {LandingPage, AddEvent, AddImage, CameraView, EventPage} from './components';
+import {LandingPage, AddEvent, AddImage, EventPage} from './components';
 
 export default class App extends React.Component {
 
@@ -15,7 +15,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View>
-      <ImageBackground source={require('./public/lace-zoom.jpg')} style={{width: '100%', height: '100%', opacity: 0.5}}>
+      <ImageBackground source={require('./public/lace-zoom.jpg')} style={{width: '100%', height: '100%', opacity: 0.3}}>
       <View style={{
         position: 'absolute',
         width: '100%',
@@ -43,10 +43,6 @@ export default class App extends React.Component {
       <Scene key='addImage'
       component={AddImage}
       title="2. Add Image"
-      />
-      <Scene key='useCamera'
-      component={CameraView}
-      title=""
       />
       <Scene key='eventPage'
       component={EventPage}

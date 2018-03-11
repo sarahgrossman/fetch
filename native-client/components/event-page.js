@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Alert, Image, TouchableHighlight, StyleSheet, Text, View, Button } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import FadeIn from 'react-native-fade-in-image';
 import axios from 'axios';
 import API_ROOT from '../ip-addresses';
 
@@ -29,15 +30,16 @@ class EventPage extends Component {
     const { imageUris } = this.state;
       return (
         <View>
-          <Text>{this.props.eventName}</Text>
+          <Text style={styles.text}>{this.props.eventName}</Text>
               {imageUris.length > 0 && imageUris.map(
                 uri => {
                   console.log('uri is', uri);
                   return (
+                    <FadeIn key={uri}>
                     <Image
-                key={uri}
                 style={styles.image}
                 source={{uri}} />
+                </FadeIn>
                   )
                 }
               )}
@@ -53,7 +55,6 @@ class EventPage extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: '#e0ecef',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -62,17 +63,20 @@ const styles = StyleSheet.create({
     fontSize: 70,
     color: '#b77575'
   },
-  // backgroundImage: {
-  //   flex: 1,
-  //   resizeMode: 'cover',
-  //   width: null,
-  //   height: null
-  // }
   image: {
     width: 100,
     height: 100
-  }
-
+  },
+  text: {
+    fontFamily: 'alegreya-sans',
+    fontSize: 30,
+    color: '#b77575',
+    paddingTop: 20,
+    textAlign: 'center',
+    textShadowColor: '#383832',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 1,
+  },
 });
 
 
