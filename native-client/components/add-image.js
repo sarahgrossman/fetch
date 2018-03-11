@@ -38,14 +38,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#e0ecef',
     alignItems: 'center',
     justifyContent: 'center',
+    height: '100%',
+    width: '100%',
+    position: 'absolute',
+    top: 300
   },
   title: {
     fontFamily: 'Arial',
     fontSize: 30,
-    color: '#b77575'
-  },
-  textInput: {
-    height: 40
+    color: '#b77575',
+    textShadowColor: '#383832',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 1
   },
   uploadContainer: {
     height: 90

@@ -24,9 +24,7 @@ class LandingPage extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: '#e0ecef',
     alignItems: 'center',
-    // justifyContent: 'center',
     paddingTop: 200
   },
   title: {
@@ -37,13 +35,7 @@ const styles = StyleSheet.create({
     textShadowColor: '#383832',
     textShadowOffset: {width: -1, height: 1},
     textShadowRadius: 1
-  },
-  // backgroundImage: {
-  //   flex: 1,
-  //   resizeMode: 'cover',
-  //   width: null,
-  //   height: null
-  // }
+  }
 });
 
 

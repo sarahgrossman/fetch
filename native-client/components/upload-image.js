@@ -82,11 +82,11 @@ const styles = StyleSheet.create({
   upload: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     position: 'relative',
     width: '100%',
     height: null,
-    zIndex: 1
+    // top: 300
   }
 })
 
