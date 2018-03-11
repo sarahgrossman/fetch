@@ -1,9 +1,16 @@
 import React from 'react';
 import { ImageBackground, View, StyleSheet } from 'react-native';
+import { Font } from 'expo';
 import { Router, Scene } from 'react-native-router-flux';
 import {LandingPage, AddEvent, AddImage, CameraView, EventPage} from './components';
 
 export default class App extends React.Component {
+
+  componentDidMount() {
+    Font.loadAsync({
+      'alegreya-sans': require('./assets/fonts/AlegreyaSans-Regular.ttf'),
+    });
+  }
 
   render() {
     return (
@@ -13,7 +20,7 @@ export default class App extends React.Component {
         position: 'absolute',
         width: '100%',
         flex: 1,
-        opacity: 0.9
+        opacity: 1
         }}>
       </View>
       </ImageBackground>
@@ -53,7 +60,4 @@ export default class App extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
-
-})
 

@@ -60,13 +60,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    paddingTop: 50
+    paddingTop: 50,
+    position: 'absolute',
+    width: '100%',
+    opacity: 1
   },
   title: {
-    fontFamily: 'Arial',
+    fontFamily: 'alegreya-sans',
     fontSize: 30,
     color: '#b77575',
-    paddingTop: 50
+    paddingTop: 50,
+    textShadowColor: '#383832',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 1
   },
   textInput: {
     height: 40,

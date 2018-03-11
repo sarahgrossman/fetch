@@ -31,8 +31,12 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: 'Snell Roundhand',
+    fontWeight: 'bold',
     fontSize: 70,
-    color: '#b77575'
+    color: '#b77575',
+    textShadowColor: '#383832',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 1
   },
   // backgroundImage: {
   //   flex: 1,

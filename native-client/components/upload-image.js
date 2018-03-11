@@ -49,7 +49,7 @@ class UploadImage extends Component {
     console.log('$$$$$THE IMAGE IS ', image);
 
     return (
-      <View style={styles.button}>
+      <View style={styles.upload}>
       {!image && <View>
       <Button
         title="Choose image from library"
@@ -79,10 +79,14 @@ class UploadImage extends Component {
 }
 
 const styles = StyleSheet.create({
-  button: {
+  upload: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    position: 'relative',
+    width: '100%',
+    height: null,
+    zIndex: 1
   }
 })
 
