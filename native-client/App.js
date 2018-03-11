@@ -1,7 +1,7 @@
 import React from 'react';
 import { ImageBackground, View, StyleSheet } from 'react-native';
 import { Font } from 'expo';
-import { Router, Scene } from 'react-native-router-flux';
+import { Router, Lightbox, Scene } from 'react-native-router-flux';
 import {LandingPage, AddEvent, AddImage, EventPage} from './components';
 
 export default class App extends React.Component {
@@ -15,21 +15,11 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={{height: '100%' }}>
-      {/* <ImageBackground source={require('./public/lace-zoom.jpg')} style={{width: '100%', height: '100%', opacity: 0.3}}>
-      <View style={{
-        position: 'absolute',
-        width: '100%',
-        flex: 1,
-        opacity: 1
-        }}>
-      </View>
+      {/* <ImageBackground source={require('./public/lace-zoom.jpg')} style={{width: '100%', height: '100%', opacity: 0.3, position: 'absolute'}}>
       </ImageBackground> */}
       <View style={{
-        // position: 'absolute',
-        // width: '100%',
-        // height: '100%',
-        backgroundColor: 'blue',
         flex: 1,
+        backgroundColor: 'red'
       }}>
       <Router>
       <Scene key='root'>

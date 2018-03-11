@@ -30,10 +30,10 @@ class EventPage extends Component {
     const { imageUris } = this.state;
       return (
       <View
-      style={{height: 600}}
+      style={styles.container}
       >
           <Text style={styles.text}>{this.props.eventName}</Text>
-          <ImageGrid style={{height: 500}} uris={imageUris} />
+          <ImageGrid style={styles.container} uris={imageUris} />
           <Button
             title='add photo'
             // style={styles.button}
@@ -46,24 +46,7 @@ class EventPage extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    width: '100%',
-  },
-  photoContainer: {
-    flex: 1,
-    alignItems: 'center',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    width: '100%',
-    height: '80%'
-  },
-  image: {
-    width: 100,
-    height: 100,
-    margin: 10,
+    flex: 1
   },
   text: {
     fontFamily: 'alegreya-sans',

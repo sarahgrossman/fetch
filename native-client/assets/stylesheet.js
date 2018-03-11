@@ -5,8 +5,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     paddingTop: '50%',
-    backgroundColor: 'red',
-    // height: '100%'
+    // backgroundColor: 'green',
   },
   title: {
     fontFamily: 'Snell Roundhand',
@@ -39,14 +38,14 @@ const styles = StyleSheet.create({
   },
   upload: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    position: 'relative',
-    width: '100%',
-    height: null
+    // alignItems: 'center',
+    // justifyContent: 'space-around',
+    // position: 'relative',
+    // width: '100%',
+    // height: null
   },
   uploadContainer: {
-    height: 90
+    // height: 90
   }
 });
 

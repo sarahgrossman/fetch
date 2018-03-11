@@ -20,12 +20,9 @@ function AddImage (props) {
 const pageStyles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
-    height: '100%',
-    width: '100%',
-    position: 'absolute',
-    top: 300
+    alignItems: 'center',
+    paddingTop: '50%'
   },
 });
 
