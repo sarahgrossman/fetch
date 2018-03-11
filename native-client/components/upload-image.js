@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import { Text, Button, Image, View, StyleSheet } from 'react-native';
-import { ImagePicker } from 'expo';
-import { Actions } from 'react-native-router-flux';
-import API_ROOT from '../ip-addresses';
+import React, { Component } from "react";
+import { Text, Button, Image, View, StyleSheet } from "react-native";
+import { ImagePicker } from "expo";
+import { Actions } from "react-native-router-flux";
+import API_ROOT from "../ip-addresses";
+import styles from "../assets/stylesheet";
 
 class UploadImage extends Component {
   constructor(props) {
@@ -10,13 +11,13 @@ class UploadImage extends Component {
     this.state = {
       image: null,
       eventId: this.props.eventId
-    }
+    };
   }
 
-  _pickImage = async () => {
+  pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       allowsEditing: true,
-      aspect: [4, 3],
+      aspect: [4, 3]
     });
     console.log(result);
     if (!result.cancelled) {
@@ -27,62 +28,56 @@ class UploadImage extends Component {
   onPressYes() {
     const data = new FormData();
     const { eventId } = this.state;
-    data.append('eventId', eventId);
-    data.append('photo', {
+    data.append("eventId", eventId);
+    data.append("photo", {
       uri: this.state.image,
-      type: 'image/jpeg',
-      name: 'testPhoto'
+      type: "image/jpeg",
+      name: "testPhoto"
     });
     fetch(`${API_ROOT}/images/`, {
-      method: 'post',
+      method: "post",
       body: data
     })
-    .then(res => {
-      console.log(res)
-    })
-    .then(() => Actions.eventPage({eventId, eventName: this.props.eventName }));
+      .then(res => {
+        console.log(res);
+      })
+      .then(() =>
+        Actions.eventPage({ eventId, eventName: this.props.eventName })
+      );
   }
 
   render() {
     let { image } = this.state;
-    console.log('$$$$$THE IMAGE IS ', image);
+    console.log("$$$$$THE IMAGE IS ", image);
 
     return (
       <View style={styles.upload}>
-      {!image && <View>
-      <Button
-        title="Choose image from library"
-        onPress={this._pickImage}
-      />
-      </View>}
-        {image &&
-        <View>
-          <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
+        {!image && (
+          <View>
+            <Button
+              title="Choose image from library"
+              onPress={this.pickImage}
+            />
+          </View>
+        )}
+        {image && (
+          <View>
+            <Image source={{ uri: image }} style={pageStyles.image} />
             <Text>is this the image you want?</Text>
-            <Button
-              title='yes'
-              onPress={this.onPressYes.bind(this)}
-              />
-            <Button
-              title='no'
-              onPress={() => this.setState({image: null})}
-              />
-          </View>}
-        </View>
-    )
+            <Button title="yes" onPress={this.onPressYes.bind(this)} />
+            <Button title="no" onPress={() => this.setState({ image: null })} />
+          </View>
+        )}
+      </View>
+    );
   }
 }
 
-const styles = StyleSheet.create({
-  upload: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    position: 'relative',
-    width: '100%',
-    height: null
+const pageStyles = StyleSheet.create({
+  image: {
+    height: 200,
+    width: 200
   }
-})
-
+});
 
 export default UploadImage;

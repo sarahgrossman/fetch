@@ -14,8 +14,8 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View>
-      <ImageBackground source={require('./public/lace-zoom.jpg')} style={{width: '100%', height: '100%', opacity: 0.3}}>
+      <View style={{height: '100%' }}>
+      {/* <ImageBackground source={require('./public/lace-zoom.jpg')} style={{width: '100%', height: '100%', opacity: 0.3}}>
       <View style={{
         position: 'absolute',
         width: '100%',
@@ -23,10 +23,12 @@ export default class App extends React.Component {
         opacity: 1
         }}>
       </View>
-      </ImageBackground>
+      </ImageBackground> */}
       <View style={{
-        position: 'absolute',
-        width: '100%',
+        // position: 'absolute',
+        // width: '100%',
+        // height: '100%',
+        backgroundColor: 'blue',
         flex: 1,
       }}>
       <Router>

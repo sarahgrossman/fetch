@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import { Alert, Image, TouchableHighlight, StyleSheet, Text, View, Button } from 'react-native';
+import {ImageGrid} from './';
+import { Image, StyleSheet, Text, View, FlatList, Button } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import FadeIn from 'react-native-fade-in-image';
 import axios from 'axios';
 import API_ROOT from '../ip-addresses';
 
@@ -29,22 +29,14 @@ class EventPage extends Component {
   render() {
     const { imageUris } = this.state;
       return (
-        <View>
+      <View
+      style={{height: 600}}
+      >
           <Text style={styles.text}>{this.props.eventName}</Text>
-              {imageUris.length > 0 && imageUris.map(
-                uri => {
-                  console.log('uri is', uri);
-                  return (
-                    <FadeIn key={uri}>
-                    <Image
-                style={styles.image}
-                source={{uri}} />
-                </FadeIn>
-                  )
-                }
-              )}
+          <ImageGrid style={{height: 500}} uris={imageUris} />
           <Button
             title='add photo'
+            // style={styles.button}
             onPress={() => Actions.addImage({eventId: this.props.eventId, eventName: this.props.eventName})}
             />
           </View>
@@ -56,16 +48,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    flexWrap: 'wrap',
     justifyContent: 'center',
+    width: '100%',
   },
-  title: {
-    fontFamily: 'Snell Roundhand',
-    fontSize: 70,
-    color: '#b77575'
+  photoContainer: {
+    flex: 1,
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    width: '100%',
+    height: '80%'
   },
   image: {
     width: 100,
-    height: 100
+    height: 100,
+    margin: 10,
   },
   text: {
     fontFamily: 'alegreya-sans',

@@ -1,41 +1,25 @@
-import React, { Component } from 'react';
-import { Alert, TouchableHighlight, StyleSheet, Text, View, TextInput } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import { UploadImage } from './';
-import axios from 'axios';
-import API_ROOT from '../ip-addresses';
+import styles from '../assets/stylesheet';
 
 
-class AddImage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    }
-  }
-
-  _onPressButton = () => {
-  }
-
-  render() {
-    console.log('the event in add image is ', this.props.eventId)
-    const { eventId, eventName } = this.props;
+function AddImage (props) {
+    console.log('the event in add image is ', props.eventId)
+    const { eventId, eventName } = props;
     return (
-      <View style={styles.container}>
-          <Text style={styles.title}>add your look:</Text>
+      <View style={pageStyles.container}>
+          <Text style={styles.text}>add your look:</Text>
           <View style={styles.uploadContainer}>
           <UploadImage eventId={eventId} eventName={eventName} />
           </View>
-          <TouchableHighlight onPress={this._onPressButton} underlayColor="white">
-              <Text>submit</Text>
-          </TouchableHighlight>
         </View>
     )
-  }
 }
 
-const styles = StyleSheet.create({
+const pageStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#e0ecef',
     alignItems: 'center',
     justifyContent: 'center',
     height: '100%',
@@ -43,17 +27,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 300
   },
-  title: {
-    fontFamily: 'Arial',
-    fontSize: 30,
-    color: '#b77575',
-    textShadowColor: '#383832',
-    textShadowOffset: {width: -1, height: 1},
-    textShadowRadius: 1
-  },
-  uploadContainer: {
-    height: 90
-  }
 });
 
 export default AddImage;
