@@ -1,7 +1,6 @@
 {
   "expo": {
     "name": "fetch",
-    "platforms:": ["ios"],
     "sdkVersion": "25.0.0",
     "slug": "fetch",
     "orientation": "portrait",

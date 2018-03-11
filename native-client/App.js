@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground, View } from 'react-native';
+import { ImageBackground, View, StyleSheet } from 'react-native';
 import { Router, Scene } from 'react-native-router-flux';
 import {LandingPage, AddEvent, AddImage, CameraView, EventPage} from './components';
 
@@ -7,10 +7,21 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <ImageBackground source={require('./public/background.jpeg')} style={{width: '100%', height: '100%', opacity: 0.5}}>
+      <View>
+      <ImageBackground source={require('./public/girl.jpg')} style={{width: '100%', height: '100%', opacity: 0.5}}>
       <View style={{
         position: 'absolute',
-        width: '100%' }}>
+        width: '100%',
+        flex: 1,
+        opacity: 0.9
+        }}>
+      </View>
+      </ImageBackground>
+      <View style={{
+        position: 'absolute',
+        width: '100%',
+        flex: 1,
+      }}>
       <Router>
       <Scene key='root'>
       <Scene key='landingPage'
@@ -34,12 +45,15 @@ export default class App extends React.Component {
       component={EventPage}
       title="Your Event"
       />
-
       </Scene>
       </Router>
       </View>
-      </ImageBackground>
+      </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+
+})
 
