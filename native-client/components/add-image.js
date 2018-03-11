@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { Alert, TouchableHighlight, StyleSheet, Text, View, TextInput } from 'react-native';
+import { TouchableHighlight, StyleSheet, Text, View } from 'react-native';
 import { UploadImage } from './';
-import axios from 'axios';
-import API_ROOT from '../ip-addresses';
-
 
 class AddImage extends Component {
   constructor(props) {
@@ -20,7 +17,7 @@ class AddImage extends Component {
     const { eventId, eventName } = this.props;
     return (
       <View style={styles.container}>
-          <Text style={styles.title}>add your look:</Text>
+          <Text style={styles.text}>add your look:</Text>
           <View style={styles.uploadContainer}>
           <UploadImage eventId={eventId} eventName={eventName} />
           </View>
@@ -43,7 +40,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 300
   },
-  title: {
+  text: {
     fontFamily: 'Arial',
     fontSize: 30,
     color: '#b77575',

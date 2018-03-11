@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import { Camera, Permissions } from 'expo';
 
-export default class CameraExample extends React.Component {
+export default class CameraView extends React.Component {
   state = {
     hasCameraPermission: null,
     type: Camera.Constants.Type.back,
@@ -13,12 +13,6 @@ export default class CameraExample extends React.Component {
     this.setState({ hasCameraPermission: status === 'granted' });
   }
 
-  snap = async () => {
-    if (this.camera) {
-      let photo = await this.camera.takePictureAsync();
-    }
-  };
-
   render() {
     const { hasCameraPermission } = this.state;
     if (hasCameraPermission === null) {
@@ -28,7 +22,7 @@ export default class CameraExample extends React.Component {
     } else {
       return (
         <View style={{ flex: 1 }}>
-          <Camera style={{ flex: 1 }} type={this.state.type} ref={ref => { this.camera = ref; }}>
+          <Camera style={{ flex: 1 }} type={this.state.type}>
             <View
               style={{
                 flex: 1,

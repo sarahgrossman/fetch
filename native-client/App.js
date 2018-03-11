@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground, View, StyleSheet } from 'react-native';
+import { ImageBackground, View } from 'react-native';
 import { Font } from 'expo';
 import { Router, Scene } from 'react-native-router-flux';
 import {LandingPage, AddEvent, AddImage, CameraView, EventPage} from './components';

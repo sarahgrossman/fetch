@@ -55,9 +55,9 @@ class UploadImage extends Component {
         title="Choose image from library"
         onPress={this._pickImage}
       />
-      <Button
+      {/* <Button
         title="OR take with camera"
-        onPress={() => Actions.useCamera()}
+        onPress={() => Actions.useCamera()} */}
       /></View>
       }
         {image &&
@@ -85,8 +85,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     position: 'relative',
     width: '100%',
-    height: null,
-    // top: 300
+    height: null
   }
 })
 
