@@ -29,7 +29,7 @@ router.get('/:id', function(req, res, next) {
 router.post('/', upload.single('photo'), (req, res, next) => {
   console.log('req.file is', req.file.filename);
   Image.create({
-    uri: `http://localhost:5000/images/${req.file.filename}`,
+    uri: `${req.file.filename}`,
     eventId: req.body.eventId,
     // userId: req.body.user
   })
