@@ -63,7 +63,7 @@ class UploadImage extends Component {
         {image && (
           <View>
             <Image source={{ uri: image }} style={pageStyles.image} />
-            <Text>is this the image you want?</Text>
+            <Text style={styles.prompt}>is this the image you want?</Text>
             <Button title="yes" onPress={this.onPressYes.bind(this)} />
             <Button title="no" onPress={() => this.setState({ image: null })} />
           </View>

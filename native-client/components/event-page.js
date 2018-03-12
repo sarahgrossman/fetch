@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: 'alegreya-sans',
     fontSize: 30,
-    color: '#b77575',
+    color: '#F8666B',
     paddingTop: 20,
     textAlign: 'center',
     textShadowColor: '#383832',

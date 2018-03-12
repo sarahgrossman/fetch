@@ -33,11 +33,17 @@ const styles = StyleSheet.create({
   or: {
     paddingTop: 50,
     fontSize: 15,
-    fontFamily: 'Arial',
+    fontFamily: 'alegreya-sans',
     color: '#383832',
   },
   upload: {
     flex: 1,
+  },
+  prompt: {
+    fontSize: 15,
+    fontFamily: 'alegreya-sans',
+    color: '#383832',
+    textAlign: 'center'
   }
 });
 
