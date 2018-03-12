@@ -18,7 +18,7 @@ class AddEvent extends Component {
     axios
       .post(`${API_ROOT}/events`, { name: this.state.text })
       .then(res => res.data)
-      .then(data => Actions.addImage({ eventId: data.id }))
+      .then(data => Actions.addImage({ eventId: data.id, eventName: data.name }))
       .catch(error => console.log(error));
   };
 
@@ -59,12 +59,9 @@ class AddEvent extends Component {
 const pageStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'red',
+    backgroundColor: '#f9f9ed',
     alignItems: "center",
-    // justifyContent: "center",
     paddingTop: '30%',
-    // position: "absolute",
-    // width: "100%",
     opacity: 1
   }
 });

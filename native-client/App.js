@@ -19,7 +19,7 @@ export default class App extends React.Component {
       </ImageBackground> */}
       <View style={{
         flex: 1,
-        backgroundColor: 'red'
+        backgroundColor: '#FCFBE3'
       }}>
       <Router>
       <Scene key='root'>

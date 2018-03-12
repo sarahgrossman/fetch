@@ -27,6 +27,7 @@ class EventPage extends Component {
   }
 
   render() {
+    console.log('props on page are ', this.props)
     const { imageUris } = this.state;
       return (
       <View
@@ -46,7 +47,8 @@ class EventPage extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: '#FFFFF0'
   },
   text: {
     fontFamily: 'alegreya-sans',
