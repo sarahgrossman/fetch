@@ -48,7 +48,6 @@ class UploadImage extends Component {
 
   render() {
     let { image } = this.state;
-    console.log("$$$$$THE IMAGE IS ", image);
 
     return (
       <View style={styles.upload}>

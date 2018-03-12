@@ -2,7 +2,7 @@ import React from 'react';
 import { ImageBackground, View, StyleSheet } from 'react-native';
 import { Font } from 'expo';
 import { Router, Lightbox, Scene } from 'react-native-router-flux';
-import {LandingPage, AddEvent, AddImage, EventPage} from './components';
+import {LandingPage, AddEvent, AddImage, EventPage, SingleImage} from './components';
 
 export default class App extends React.Component {
 
@@ -39,6 +39,10 @@ export default class App extends React.Component {
       <Scene key='eventPage'
       component={EventPage}
       title="Your Event"
+      />
+      <Scene key='singleImage'
+      component={SingleImage}
+      title="Close Up"
       />
       </Scene>
       </Router>

@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   View,
-  Image
+  Image,
+  TouchableHighlight
 } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 import Grid from 'react-native-grid-component';
 
@@ -26,9 +28,14 @@ export default class ImageGrid extends Component {
       }
 
   _renderItem = (data) =>
-    <View style={styles.item} key={data.id}>
-    <Image source={{uri: data.src}} style={styles.item}/>
-     </View>
+    (<View style={styles.item} key={data.id}>
+    <TouchableHighlight
+    style={styles.item}
+    onPress = {() => {Actions.singleImage({uri: data.src})
+    }}>
+    <Image source={{uri: data.src}} style={styles.item} />
+    </TouchableHighlight>
+     </View>)
 
   render() {
     console.log(this.state.data, 'is data in image grid')
