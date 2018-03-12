@@ -6,6 +6,7 @@ import {
   TouchableHighlight
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import FadeIn from 'react-native-fade-in-image';
 
 import Grid from 'react-native-grid-component';
 
@@ -33,7 +34,9 @@ export default class ImageGrid extends Component {
     style={styles.item}
     onPress = {() => {Actions.singleImage({uri: data.src})
     }}>
+    <FadeIn style={styles.item}>
     <Image source={{uri: data.src}} style={styles.item} />
+    </FadeIn>
     </TouchableHighlight>
      </View>)
 
