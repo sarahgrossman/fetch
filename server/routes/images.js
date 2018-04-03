@@ -17,11 +17,8 @@ const upload = multer({
     s3: s3,
     bucket: 'fetch-app-fsa',
     acl: 'public-read',
-    // contentType: (req, file, cb) => {
-    //   return cb(null, {fieldName: file.fieldname})
-    // }, // multerS3.AUTO_CONTENT_TYPE,
     metadata: function(req, file, cb) {
-      cb(null, { fieldName: file.fieldname })
+      cb(null, { eventId: req.body.eventId})
     },
     key: function(req, file, cb) {
       cb(null, Date.now().toString())
