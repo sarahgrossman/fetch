@@ -7,7 +7,6 @@ import {
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import FadeIn from 'react-native-fade-in-image';
-
 import Grid from 'react-native-grid-component';
 
 export default class ImageGrid extends Component {
@@ -41,7 +40,6 @@ export default class ImageGrid extends Component {
      </View>)
 
   render() {
-    console.log(this.state.data, 'is data in image grid')
     return (
       <Grid
         style={styles.list}

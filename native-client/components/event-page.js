@@ -18,7 +18,7 @@ class EventPage extends Component {
   axios.get(`${API_ROOT}/images/${this.props.eventId}`)
   .then(res => res.data)
   .then(images => {
-    const imageUris = images.map(image => `${API_ROOT}/images/${image.uri}`);
+    const imageUris = images.map(image => image.uri);
     this.setState({
       imageUris
     })

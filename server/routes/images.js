@@ -11,14 +11,15 @@ AWS.config.update({"accessKeyId": process.env.AWS_ID, "secretAccessKey": process
 
 const s3 = new AWS.S3()
 
+
 const upload = multer({
   storage: multerS3({
     s3: s3,
-    bucket: 'speech-perfect',
+    bucket: 'fetch-app-fsa',
     acl: 'public-read',
-    contentType: (req, file, cb) => {
-      return cb(null, 'audio/x-wav')
-    }, // multerS3.AUTO_CONTENT_TYPE,
+    // contentType: (req, file, cb) => {
+    //   return cb(null, {fieldName: file.fieldname})
+    // }, // multerS3.AUTO_CONTENT_TYPE,
     metadata: function(req, file, cb) {
       cb(null, { fieldName: file.fieldname })
     },
@@ -42,8 +43,9 @@ router.get('/:id', function(req, res, next) {
 // upload image
 router.post('/', upload.single('photo'), (req, res, next) => {
   console.log('req.file is', req.file.filename);
+  console.log('req file location is', req.file.location)
   Image.create({
-    url: req.file.location,
+    uri: req.file.location,
     eventId: req.body.eventId,
     // userId: req.body.user
   })

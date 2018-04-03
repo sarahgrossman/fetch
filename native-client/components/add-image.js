@@ -5,7 +5,6 @@ import styles from '../assets/stylesheet';
 
 
 function AddImage (props) {
-    console.log('the event in add image is ', props)
     const { eventId, eventName } = props;
     return (
       <View style={pageStyles.container}>
