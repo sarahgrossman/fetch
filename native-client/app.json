@@ -7,6 +7,9 @@
     "icon": "./public/icon.png",
     "ios": {
       "bundleIdentifier": "com.yourcompany.yourappname"
-    }
+    },
+    "facebookScheme": "fb2059028964339773",
+    "facebookDisplayName": "Fetch",
+    "facebookAppId": "2059028964339773"
   }
 }
