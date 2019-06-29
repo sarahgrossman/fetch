@@ -1,30 +1,30 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   StyleSheet,
   View,
   Image,
   TouchableHighlight
-} from 'react-native';
-import { Actions } from 'react-native-router-flux';
-import FadeIn from 'react-native-fade-in-image';
-import Grid from 'react-native-grid-component';
+} from 'react-native'
+import { Actions } from 'react-native-router-flux'
+import FadeIn from 'react-native-fade-in-image'
+import Grid from 'react-native-grid-component'
 
 export default class ImageGrid extends Component {
-
   constructor(props) {
-    super(props);
+    super(props)
+
     this.state = {
       data: []
-    };
+    }
   }
 
   componentWillReceiveProps(nextProps) {
     let items = nextProps.uris.map((uri, i) => {
-          return { id: i, src: uri }
-      });
+        return { id: i, src: uri }
+      })
       this.setState({
         data: items
-      });
+      })
       }
 
   _renderItem = (data) =>
@@ -47,7 +47,7 @@ export default class ImageGrid extends Component {
         data={this.state.data}
         itemsPerRow={2}
       />
-    );
+    )
   }
 }
 
@@ -60,4 +60,4 @@ const styles = StyleSheet.create({
   list: {
     flex: 1,
   },
-});
+})

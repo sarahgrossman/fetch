@@ -1,14 +1,15 @@
-import React, {Component} from 'react';
-import {ImageGrid} from './';
-import { Image, StyleSheet, Text, View, FlatList, Button } from 'react-native';
-import { Actions } from 'react-native-router-flux';
-import axios from 'axios';
-import API_ROOT from '../ip-addresses';
+import React, {Component} from 'react'
+import {ImageGrid} from './'
+import { Image, StyleSheet, Text, View, FlatList, Button } from 'react-native'
+import { Actions } from 'react-native-router-flux'
+import axios from 'axios'
+import API_ROOT from '../ip-addresses'
 
 
 class EventPage extends Component {
   constructor(props) {
-    super(props);
+    super(props)
+
     this.state = {
       imageUris: []
     }
@@ -18,17 +19,16 @@ class EventPage extends Component {
   axios.get(`${API_ROOT}/images/${this.props.eventId}`)
   .then(res => res.data)
   .then(images => {
-    const imageUris = images.map(image => image.uri);
+    const imageUris = images.map(image => image.uri)
     this.setState({
       imageUris
     })
   })
-  .catch(err => console.log(err));
+  .catch(err => console.log(err))
   }
 
   render() {
-    console.log('props on page are ', this.props)
-    const { imageUris } = this.state;
+    const { imageUris } = this.state
       return (
       <View
       style={styles.container}
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     textShadowOffset: {width: -1, height: 1},
     textShadowRadius: 1,
   },
-});
+})
 
 
-export default EventPage;
+export default EventPage

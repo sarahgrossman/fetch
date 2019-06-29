@@ -1,11 +1,11 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { UploadImage } from './';
-import styles from '../assets/stylesheet';
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import { UploadImage } from './'
+import styles from '../assets/stylesheet'
 
 
 function AddImage (props) {
-    const { eventId, eventName } = props;
+    const { eventId, eventName } = props
     return (
       <View style={pageStyles.container}>
           <Text style={styles.text}>add your look:</Text>
@@ -24,6 +24,6 @@ const pageStyles = StyleSheet.create({
     paddingTop: '50%',
     backgroundColor: '#f9f9ed'
   },
-});
+})
 
-export default AddImage;
+export default AddImage

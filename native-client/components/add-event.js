@@ -1,17 +1,18 @@
-import React, { Component } from "react";
-import { Button, StyleSheet, Text, View, TextInput } from "react-native";
-import { Actions } from "react-native-router-flux";
-import axios from "axios";
-import API_ROOT from "../ip-addresses";
-import styles from "../assets/stylesheet";
+import React, { Component } from 'react'
+import { Button, StyleSheet, Text, View, TextInput } from 'react-native'
+import { Actions } from 'react-native-router-flux'
+import axios from 'axios'
+import API_ROOT from '../ip-addresses'
+import styles from '../assets/stylesheet'
 
 class AddEvent extends Component {
   constructor(props) {
-    super(props);
+    super(props)
+
     this.state = {
-      text: "default_event",
-      eventName: "default_name"
-    };
+      text: 'default_event',
+      eventName: 'default_name'
+    }
   }
 
   addEventButton = () => {
@@ -19,19 +20,18 @@ class AddEvent extends Component {
       .post(`${API_ROOT}/events`, { name: this.state.text })
       .then(res => res.data)
       .then(data => Actions.addImage({ eventId: data.id, eventName: data.name }))
-      .catch(error => console.log(error));
-  };
+      .catch(error => console.log(error))
+  }
 
   findEventButton = () => {
-    console.log(this.state.eventName, "is the event name");
     axios
       .get(`${API_ROOT}/events/${this.state.eventName}`)
       .then(res => res.data)
       .then(data =>
         Actions.eventPage({ eventId: data.id, eventName: data.name })
       )
-      .catch(error => console.log(error));
-  };
+      .catch(error => console.log(error))
+  }
 
   render() {
     return (
@@ -40,19 +40,19 @@ class AddEvent extends Component {
         <TextInput
           style={styles.textInput}
           onChangeText={text => this.setState({ text })}
-          placeholder="new event"
+          placeholder='new event'
         />
-        <Button title="submit" onPress={this.addEventButton} />
+        <Button title='submit' onPress={this.addEventButton} />
         <Text style={styles.or}>OR</Text>
         <Text style={styles.text}>search by name:</Text>
         <TextInput
           style={styles.textInput}
           onChangeText={text => this.setState({ eventName: text })}
-          placeholder="event name here"
+          placeholder='event name here'
         />
-        <Button title="submit" onPress={this.findEventButton.bind(this)} />
+        <Button title='submit' onPress={this.findEventButton.bind(this)} />
       </View>
-    );
+    )
   }
 }
 
@@ -60,10 +60,10 @@ const pageStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f9f9ed',
-    alignItems: "center",
+    alignItems: 'center',
     paddingTop: '30%',
     opacity: 1
   }
-});
+})
 
-export default AddEvent;
+export default AddEvent
