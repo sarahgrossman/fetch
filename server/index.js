@@ -76,7 +76,7 @@ const createApp = () => {
 
 const startListening = () => {
   // start listening (and create a 'server' object representing our server)
-  app.listen(PORT, () => console.log(`Mixing it up on port ${PORT}`))
+  app.listen(PORT, () => console.log(`App listening on port ${PORT}`))
 
   // set up our socket control center
 }

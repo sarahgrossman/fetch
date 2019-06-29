@@ -1,6 +1,6 @@
-var express = require('express');
-var router = express.Router();
-const {User, Event, Image} = require('../db/models');
+var express = require('express')
+var router = express.Router()
+const { Image } = require('../db/models')
 const multer = require('multer')
 const multerS3 = require('multer-s3')
 const AWS = require('aws-sdk')
@@ -34,12 +34,12 @@ router.get('/:id', function(req, res, next) {
       eventId: req.params.id
     }
   })
-  .then((foundImages) => res.json(foundImages));
-});
+  .then((foundImages) => res.json(foundImages))
+})
 
 // upload image
 router.post('/', upload.single('photo'), (req, res, next) => {
-  console.log('req.file is', req.file.filename);
+  console.log('req.file is', req.file.filename)
   console.log('req file location is', req.file.location)
   Image.create({
     uri: req.file.location,
@@ -49,4 +49,4 @@ router.post('/', upload.single('photo'), (req, res, next) => {
   .then((createdImage) => res.status(204).json(createdImage))
 })
 
-module.exports = router;
+module.exports = router
