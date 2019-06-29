@@ -10,8 +10,8 @@ class AddEvent extends Component {
     super(props)
 
     this.state = {
-      text: 'default_event',
-      eventName: 'default_name'
+      text: '',
+      eventName: ''
     }
   }
 
@@ -27,9 +27,9 @@ class AddEvent extends Component {
     axios
       .get(`${API_ROOT}/events/${this.state.eventName}`)
       .then(res => res.data)
-      .then(data =>
+      .then(data => {
         Actions.eventPage({ eventId: data.id, eventName: data.name })
-      )
+      })
       .catch(error => console.log(error))
   }
 

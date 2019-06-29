@@ -7,10 +7,10 @@ import styles from '../assets/stylesheet'
 function LandingPage () {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>fetch</Text>
       <TouchableHighlight onPress={() => Actions.addEvent()} underlayColor='white'>
         <View>
-          <Text>get started</Text>
+          <Text style={styles.title}>fetch</Text>
+          <Text>click to get started</Text>
         </View>
       </TouchableHighlight>
     </View>

@@ -1,9 +1,9 @@
-var express = require('express')
-var router = express.Router()
-const { Image } = require('../db/models')
+const express = require('express')
+const router = express.Router()
 const multer = require('multer')
 const multerS3 = require('multer-s3')
 const AWS = require('aws-sdk')
+const { Image } = require('../db/models')
 
 /* eslint-disable */
 AWS.config.update({"accessKeyId": process.env.AWS_ID, "secretAccessKey": process.env.AWS_KEY, "region": process.env.AWS_REGION})
@@ -39,8 +39,6 @@ router.get('/:id', function(req, res, next) {
 
 // upload image
 router.post('/', upload.single('photo'), (req, res, next) => {
-  console.log('req.file is', req.file.filename)
-  console.log('req file location is', req.file.location)
   Image.create({
     uri: req.file.location,
     eventId: req.body.eventId,

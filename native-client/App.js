@@ -6,8 +6,8 @@ import {LandingPage, AddEvent, AddImage, EventPage, SingleImage} from './compone
 
 export default class App extends React.Component {
 
-  componentDidMount() {
-    Font.loadAsync({
+  async componentDidMount() {
+    await Font.loadAsync({
       'alegreya-sans': require('./assets/fonts/AlegreyaSans-Regular.ttf'),
     })
   }
@@ -18,11 +18,11 @@ export default class App extends React.Component {
         <View style={{ flex: 1, backgroundColor: '#FCFBE3' }}>
           <Router>
             <Scene key='root'>
-              <Scene key='landingPage' component={LandingPage} title='Home' initial />
-              <Scene key='addEvent' component={AddEvent} title="1. Add Event" />
-              <Scene key='addImage' component={AddImage} title="2. Add Image" />
-              <Scene key='eventPage' component={EventPage} title="Your Event" />
-              <Scene key='singleImage' component={SingleImage} title="Close Up" />
+              <Scene key='landingPage' component={LandingPage} title='Home' />
+              <Scene key='addEvent' component={AddEvent} title='1. Add Event' />
+              <Scene key='addImage' component={AddImage} title='2. Add Image' />
+              <Scene key='eventPage' component={EventPage} title='Your Event' />
+              <Scene key='singleImage' component={SingleImage} title='Close Up' />
             </Scene>
           </Router>
         </View>

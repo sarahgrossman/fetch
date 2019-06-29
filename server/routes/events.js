@@ -1,6 +1,6 @@
-var express = require('express')
-var router = express.Router()
-const {User, Event, Image} = require('../db/models')
+const express = require('express')
+const router = express.Router()
+const { Event } = require('../db/models')
 
 
 /* GET users listing. */
